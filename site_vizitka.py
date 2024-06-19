@@ -20,7 +20,7 @@ social_media = {
     "GitHub": "https://github.com/WebEzhik"
 }
 projects = {
-    "Мой проект": "ссылка на этот проект"
+    "Мой проект": "ссылка на проект"
 }
 
 
@@ -74,3 +74,26 @@ st.write(
     -То что я умею.
     '''
 )
+
+#История работы
+st.write("#")
+st.subheader("История работы.")
+st.write("---")
+
+#Работа 1
+st.write("", "Специалист.")
+st.write("2000-2024")
+st.write(
+    '''
+    Работал.
+    '''
+)
+
+
+#Проекты
+st.write("#")
+st.subheader("Проекты")
+st.write("---")
+for prject, link in projects.items():
+    st.write(f"[{prject}]({link})")
+
