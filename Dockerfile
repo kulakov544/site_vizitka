@@ -1,15 +1,20 @@
 # Используем базовый образ Python
 FROM python:3.12
 
-# Устанавливаем рабочую директорию в контейнере
+# Устанавливаем Streamlit
+RUN pip install streamlit
+
+# Устанавливаем дополнительные зависимости (если нужно)
+# COPY requirements.txt requirements.txt
+# RUN pip install -r requirements.txt
+
+# Копируем код вашего приложения в контейнер
+COPY . /app
 WORKDIR /app
 
-# Копируем файл requirements.txt и устанавливаем зависимости
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Определяем порт, который использует Streamlit (по умолчанию 8501)
+EXPOSE 8501
 
-# Копируем все файлы из текущего каталога в контейнер
-COPY . .
+# Команда для запуска Streamlit приложения
+CMD ["streamlit", "run", "--server.port", "8501", "resume.py"]
 
-# Указываем команду для запуска вашего приложения
-CMD ["python", "resume.py"]
