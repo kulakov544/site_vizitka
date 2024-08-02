@@ -1,20 +1,17 @@
-# Используем базовый образ Python
-FROM python:3.12
+# Используем облегченный базовый образ
+FROM python:3.12-slim
 
-# Устанавливаем Streamlit
-RUN pip install streamlit
-
-# Устанавливаем дополнительные зависимости (если нужно)
-# COPY requirements.txt requirements.txt
-# RUN pip install -r requirements.txt
-
-# Копируем код вашего приложения в контейнер
-COPY . /app
+# Определяем рабочую директорию
 WORKDIR /app
 
-# Определяем порт, который использует Streamlit (по умолчанию 8501)
+# Копируем файлы
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Открываем порт
 EXPOSE 8501
 
-# Команда для запуска Streamlit приложения
-CMD ["streamlit", "run", "--server.port", "8501", "resume.py"]
-
+# Команда для запуска приложения
+CMD ["streamlit", "run", "--server.port", "8501", "main.py"]

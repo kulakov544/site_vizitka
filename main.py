@@ -1,5 +1,4 @@
 import streamlit as st
-from PIL import Image
 
 from page.show_about_me import show_about_me
 from page.show_blog import show_blog, show_full_article
@@ -17,28 +16,33 @@ def main():
         initial_sidebar_state="expanded",
     )
 
-    # Настройка меню
+    # Настройка меню с кнопками
     st.sidebar.title("Меню")
-    selection = st.sidebar.radio("Перейти к", ["Обо мне", "Мой блог", "Проекты", "Навыки", "Образование", "Опыт работы"], label_visibility='collapsed')
+    menu_options = ["Обо мне", "Мой блог", "Проекты", "Навыки", "Образование", "Опыт работы"]
 
-    if selection == "Обо мне":
+    for option in menu_options:
+        if st.sidebar.button(option, key=option):
+            st.session_state.page = option
+            st.session_state.selected_article = None
+            st.rerun()
+
+    # Отображение содержимого в зависимости от выбранной страницы
+    if st.session_state.page == "Обо мне":
         show_about_me()
-    elif selection == "Мой блог":
-        st.session_state.page = "blog"
+    elif st.session_state.page == "Мой блог":
         show_blog()
-    elif selection == "Проекты":
+    elif st.session_state.page == "Проекты":
         show_project()
-    elif selection == "Навыки":
+    elif st.session_state.page == "Навыки":
         show_skills()
-    elif selection == "Образование":
+    elif st.session_state.page == "Образование":
         show_education()
-    elif selection == "Опыт работы":
+    elif st.session_state.page == "Опыт работы":
         show_experience()
-
 
 if __name__ == "__main__":
     if 'page' not in st.session_state:
-        st.session_state.page = "blog"
+        st.session_state.page = "Обо мне"
 
     if st.session_state.page == "article":
         show_full_article()
