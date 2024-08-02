@@ -40,6 +40,12 @@ def main():
     elif st.session_state.page == "Опыт работы":
         show_experience()
 
+    # Добавление строчки о правах
+    st.markdown('''
+    ---
+    © 2024 Кулаков Антон. Все права защищены.
+    ''', unsafe_allow_html=True)
+
 if __name__ == "__main__":
     if 'page' not in st.session_state:
         st.session_state.page = "Обо мне"
