@@ -196,7 +196,9 @@ articles = [
          
         Затем идет установка самого PowerBI. Тут можно выбрать версию для разработчика. Она бесплатная, а платные всё 
         равно в России не купить. В ней есть все возможности полной версии. <br> 
-        <img src='https://raw.githubusercontent.com/kulakov544/site_vizitka/main/file/bi_2.png' style='width: 100%; height: auto;'><br> 
+        <img src='https://raw.githubusercontent.com/kulakov544/site_vizitka/main/file/bi_2.png' style='width: 100%; height: auto;'><br>
+        <img src='https://raw.githubusercontent.com/kulakov544/site_vizitka/main/file/bi_4.png' style='width: 100%; height: auto;'><br>
+        <img src='https://raw.githubusercontent.com/kulakov544/site_vizitka/main/file/bi_5.png' style='width: 100%; height: auto;'><br>
         <br> 
         Он позволит хранить готовые дашборды в базе данных и предоставлять к 
         ним доступ через веб интерфейс. Нужно только установить ещё и пользовательскую часть Power BI Desktop и 
